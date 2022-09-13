@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Popular = () => {
+const usePopular = () => {
 
     const [popularComposer, setPopularComposer] = useState([])
 
@@ -30,4 +30,4 @@ const Popular = () => {
     return popularComposer;
 };
 
-export default Popular;
+export default usePopular;

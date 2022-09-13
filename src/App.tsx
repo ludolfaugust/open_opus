@@ -1,5 +1,5 @@
 import './App.css';
-import Popular from './composers/popular/Popular';
+import Popular from './composers/popular/usePopular';
 
 
 
