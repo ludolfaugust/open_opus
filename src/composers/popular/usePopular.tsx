@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Popular from "./Popular";
+import React from "react";
 
-const usePopular = () => {
+const UsePopular = () => {
 
-    const [popularComposer, setPopularComposer] = useState([])
+    const [popularComposers, setPopularComposers] = useState<any[]>([])
 
     // useEffect(() => {
     //     fetch("https://api.openopus.org/composer/list/pop.json")
@@ -20,14 +22,36 @@ const usePopular = () => {
         .get("https://api.openopus.org/composer/list/pop.json")
         .then(res => {
             console.log(res.data)
-            setPopularComposer(res.data.results)
+            setPopularComposers(res.data.composers)
         })
 
         }, [])
     
+        console.log(popularComposers)
+
+        // const list = popularComposer.map((pc) => {
+        //     const composer = {
+        //         name: pc.name,
+
+        //     }
+        // }
+        // )
+
         
-    
-    return popularComposer;
+
+            
+
+
+    return (
+        <>
+               {popularComposers.map((pc: any, index: number) =>{
+                return <><div key={index}>{pc.name}</div>
+                <img src={pc.portrait} />
+                </>
+               })}
+
+        </>
+    )
 };
 
-export default usePopular;
+export default UsePopular;

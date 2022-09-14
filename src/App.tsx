@@ -1,12 +1,14 @@
+import React from 'react';
 import './App.css';
-import Popular from './composers/popular/usePopular';
+import Popular from './composers/popular/Popular';
+
 
 
 
 function App() {
   return (
     <div className="App">
-      <Popular />
+    <Popular />
       
     </div>
   );
