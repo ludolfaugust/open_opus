@@ -1,57 +1,43 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Popular from "./Popular";
-import React from "react";
+import React, { FC, useEffect, useState } from "react";
 
-const UsePopular = () => {
 
-    const [popularComposers, setPopularComposers] = useState<any[]>([])
 
-    // useEffect(() => {
-    //     fetch("https://api.openopus.org/composer/list/pop.json")
-    //        .then((res) => {
-    //         return res.json()
-    //        })
-    //        .then((data)=> setPopularComposer(data.composers))
-    // }, []);
+interface UsePopular{
+    searchQuery: unknown;
+    loadComposers: (searchQuery: any) => never;
+   
+}
 
-// console.log(popularComposer)
 
-        useEffect(() =>{
-            axios
-        .get("https://api.openopus.org/composer/list/pop.json")
-        .then(res => {
-            console.log(res.data)
-            setPopularComposers(res.data.composers)
-        })
 
-        }, [])
+
+
+export const usePopular: FC<UsePopular> = () => {
+
+
+    const BASE_URL = "https://api.openopus.org/composer/list/";
     
-        console.log(popularComposers)
+      const [items, setItems] = useState(null);
+    
 
-        // const list = popularComposer.map((pc) => {
-        //     const composer = {
-        //         name: pc.name,
+      const loadComposers = (searchQuery: unknown) => {
+        const url = searchQuery
+          ? `${BASE_URL}/search/${searchQuery}.json`
+          : `${BASE_URL}pop.json`;
+        setItems(null);
+        fetch(url)
+          .then((res) => {
+            if (!res.ok) alert("Error Message");
+            return res.json();
+          })
+          .then((data) => setItems(data.composers || []))
+          .catch((err) => console.log("Error Message"));
+          return url;
+      };
+    
+      useEffect(loadComposers, []);
+    
+      return [items, loadComposers];
+    }
+    
 
-        //     }
-        // }
-        // )
-
-        
-
-            
-
-
-    return (
-        <>
-               {popularComposers.map((pc: any, index: number) =>{
-                return <><div key={index}>{pc.name}</div>
-                <img src={pc.portrait} />
-                </>
-               })}
-
-        </>
-    )
-};
-
-export default UsePopular;

@@ -1,5 +1,5 @@
 import React from 'react';
-import UsePopular from './usePopular';
+import {usePopular} from './usePopular';
 
 const Popular = (name:any) => {
 
@@ -8,7 +8,7 @@ const Popular = (name:any) => {
     return (
         <div>
            hello 
-           <UsePopular />
+         
         </div>
     );
 };
