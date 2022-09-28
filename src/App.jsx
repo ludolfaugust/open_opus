@@ -1,6 +1,16 @@
 import React from 'react';
 import './App.css';
-import Popular from './composers/popular/Popular';
+import GetEssentials from './composers/essentials/GetEssentials';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useRouteMatch,
+
+} from "react-router-dom";
+import EssentialId from './composers/essentials/EssentialId';
+import EssentialsCard from './composers/essentials/EssentialsCard';
 
 
 
@@ -8,7 +18,9 @@ import Popular from './composers/popular/Popular';
 function App() {
   return (
     <div className="App">
-    <Popular />
+    
+
+    <GetEssentials />
       
     </div>
   );
