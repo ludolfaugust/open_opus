@@ -1,5 +1,5 @@
 import React from 'react'
-import {useParams} from 'react-router-dom'; 
+import {useParams, Link} from 'react-router-dom'; 
 
 function EssentialId({essentials}) {
 
@@ -16,7 +16,7 @@ function EssentialId({essentials}) {
                 <h1>{single.name}</h1>
             )
         ))}
-        
+         <Link path to= "/">Back Home</Link>
     </div>
   )
 }

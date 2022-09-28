@@ -29,6 +29,10 @@ border-radius: 3px;
     display: none;
 }
 
+&:hover{
+    scale:1.1;
+}
+
 `;
 
 const ListItem = styled.div`
@@ -101,6 +105,8 @@ function EssentialsCard({essentials, setEssentials }) {
                 </EssentialList>
 
             </ListContainer>
+
+           
 
         </>
 
