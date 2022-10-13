@@ -1,5 +1,6 @@
 import React from 'react'
 import {useParams, Link} from 'react-router-dom'; 
+import SingelEssential from './SingelEssential';
 
 function EssentialId({essentials}) {
 
@@ -13,10 +14,9 @@ function EssentialId({essentials}) {
     <div>
         {essentials.filter((single) => single.id === id).map((
             single => (
-                <h1>{single.name}</h1>
+                <SingelEssential name={single.complete_name} portraits={single.portrait} birth={single.birth} death={single.death} epoch={single.epoch} />
             )
         ))}
-         <Link path to= "/">Back Home</Link>
     </div>
   )
 }

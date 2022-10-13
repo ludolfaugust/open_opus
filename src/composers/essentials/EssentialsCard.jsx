@@ -16,7 +16,8 @@ const Container = styled.div`
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none !important;
-    background-color: #1818d9;
+    background: lightgrey;
+   
     box-shadow: 5px 6px 10px #888888;
     border-radius: 3px;
     position: relative;
@@ -33,15 +34,20 @@ const ListItem = styled.div`
     align-items: center;
     color: white;
     padding-top: 0.2rem;
+    
     `
     ;
 
 const Name = styled.h4`
+    font-weight: lighter;
+    font-size: 20px;
 
 `;
 
 const Title = styled.h1 `
     font-size: 30px;
+    font-weight: lighter;
+    opacity: 0.5;
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -84,7 +90,7 @@ function EssentialsCard({essentials, setEssentials }) {
                             <Container key={essential.id}>
                                     
                                     <ListItem key={essential.id}>                                         
-                                        <Name>{essential.complete_name}</Name> 
+                                        <Name>{essential.name}</Name> 
                                         <TrashIcon className="trashicon" onClick={() =>deleteHandler(essential.id)} />
                                     </ListItem> 
                                     <Link path to={`/${essential.id}`}>                                                                                                      
