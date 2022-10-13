@@ -1,82 +1,72 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import {TrashIcon} from '@heroicons/react/24/solid'
 
 
 const EssentialList = styled.ul`
-display: flex;
-gap: 1rem;
-justify-content: center;
-flex-wrap: wrap;
-margin: 0;
-padding: 0px;
-
-`
-;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: auto;
+    `;
 
 const Container = styled.div`
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none !important;
+    background-color: #1818d9;
+    box-shadow: 5px 6px 10px #888888;
+    border-radius: 3px;
+    position: relative;
 
-min-width: min-content;
-overflow-y: scroll;
--ms-overflow-style: none;
-scrollbar-width: none !important;
-background-color: blue;
-padding: 0.5;
-box-shadow: 5px 6px 10px #888888;
-border-radius: 3px;
-
-&::-webkit-scrollbar {
-    display: none;
-}
-
-&:hover{
-    scale:1.1;
-}
-
-`;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    `;
 
 const ListItem = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding-top: 0.2rem;
+    `
+    ;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30%;
-  min-height: 50px;
-  color: white;
- 
+const Name = styled.h4`
 
-
-
-`
-;
+`;
 
 const Title = styled.h1 `
- font-size: 30px;
- display: flex;
- justify-content: center;
- padding: 20px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    `;
 
-`;
 const ListContainer = styled.div`
-display: flex;
-max-width: 80%;
-margin: auto;
-`;
+    display: flex;
+    max-width: 80%;
+    margin: auto;
+    `;
 
 const ComposerImage = styled.div`
+    display: flex;
+    justify-content: center;
+    &:hover{
+        scale:1.1;
+    }
+    `;
 
- display: flex;
-  justify-content: center;
-
-`;
 
 function EssentialsCard({essentials, setEssentials }) {
 
-    // const deleteHandler  = (id) => {
-
-    //     setEssentials(essentials.filter((essential) => essential.id !== id));
-
-    // }
+    const deleteHandler  = (id) => {
+        setEssentials(essentials.filter((essential) => essential.id !== id));
+    };
 
 
 
@@ -92,14 +82,20 @@ function EssentialsCard({essentials, setEssentials }) {
                         return (
                         <>
                             <Container key={essential.id}>
-                                    <Link path to={`/${essential.id}`}>
-                                    <ListItem key={essential.id}> {essential.complete_name} </ListItem>                                                                   
-                                    <ComposerImage>
-                                    <img src={essential.portrait} />
-                                    </ComposerImage>
+                                    
+                                    <ListItem key={essential.id}>                                         
+                                        <Name>{essential.complete_name}</Name> 
+                                        <TrashIcon className="trashicon" onClick={() =>deleteHandler(essential.id)} />
+                                    </ListItem> 
+                                    <Link path to={`/${essential.id}`}>                                                                                                      
+                                        <ComposerImage>
+                                        <img src={essential.portrait} />
+                                        </ComposerImage>
                                     </Link> 
-                            </Container>
-                            
+                                    
+                                    
+                            </Container>   
+                                                    
                         </>
                     )})}
                 </EssentialList>

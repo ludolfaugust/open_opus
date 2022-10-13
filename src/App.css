@@ -3,3 +3,14 @@
 
 }
 
+.trashicon{
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 7px;
+   
+    
+
+}
