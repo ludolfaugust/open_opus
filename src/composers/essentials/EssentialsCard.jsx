@@ -92,8 +92,8 @@ function EssentialsCard({essentials, setEssentials }) {
                         return (
                         <>
                             <Container key={essential.id}>
-                                    <ListItem key={essential.id}> {essential.complete_name} </ListItem> 
-                                    <Link path to={`/${essential.id}`}>                              
+                                    <Link path to={`/${essential.id}`}>
+                                    <ListItem key={essential.id}> {essential.complete_name} </ListItem>                                                                   
                                     <ComposerImage>
                                     <img src={essential.portrait} />
                                     </ComposerImage>
