@@ -33,7 +33,7 @@ const ListItem = styled.div`
     flex-direction: column;
     align-items: center;
     color: white;
-    padding-top: 0.2rem;
+    padding-top: 5.2rem;
     
     `
     ;
