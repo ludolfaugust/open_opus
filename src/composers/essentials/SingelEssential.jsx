@@ -26,8 +26,8 @@ const InfoItems = styled.h4`
 const ComposerImage = styled.div`
    display: flex;
    flex-direction: column;
-   height: 500px;
-   width: 500px;
+   height: 900px;
+   width: 900px;
     
     `;
 
